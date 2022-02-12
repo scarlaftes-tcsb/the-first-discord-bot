@@ -15,7 +15,14 @@ async def on_message(message):
   channel = str(message.channel.name)
   if message.author == client.user:
     return
-  await message.channel.send(f'hello {username} {author} {user_message} {channel}')
+  if channel == "bot":
+    #await message.channel.send(f'hello {username} {author} {user_message} {channel}')
+    if user_message == 'hi' or user_message == 'hello':
+      await message.channel.send('hello! :grin:')
+    elif user_message == 'bye' or user_message == 'goodbye':
+      await message.channel.send('see you soon! :wave:')
+  else:
+    await message.channel.send('please send messages in **_BOT_  CHANNEL ONLY** :poop:')
 
 client.run(token)
 
