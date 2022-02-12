@@ -1,6 +1,7 @@
+import os
 import discord
 
-token = "OTQyMTIwNDcwNTE2NDc3OTcz.Ygf4Dw.5KD6tfa3gC0OjCEQ259U4nePKMc"
+token = os.environ['token']
 client = discord.Client()
 
 @client.event
@@ -17,3 +18,4 @@ async def on_message(message):
   await message.channel.send(f'hello {username} {author} {user_message} {channel}')
 
 client.run(token)
+
